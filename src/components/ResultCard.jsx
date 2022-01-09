@@ -1,11 +1,16 @@
-import React, {useContext} from 'react'
+import React, {useContext, useState} from 'react'
 import GlobalContext from './context/GlobalContext.jsx'
 
 export const ResultCard =({movie})=> {
+
     const gState = useContext(GlobalContext)
+
     const awatch = (movie)=>{
         gState.watchlist = [movie,...gState.watchlist]
     }
+    
+    
+
     return (
         <div className='result-card'>
             <div className="poster-wrapper">
