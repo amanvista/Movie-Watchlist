@@ -1,6 +1,7 @@
 import React from 'react'
 
-const MovieControls = () => {
+const MovieControls = ({movie, removeFromWatchList}) => {
+    
     return (
         <div className="inner-card-controls">
             <button className="ctrl-btn">
@@ -8,7 +9,7 @@ const MovieControls = () => {
                 <i className="fa-fw far fa-eye">
                 </i>
             </button>
-            <button className="ctrl-btn">
+            <button className="ctrl-btn" onClick={()=>removeFromWatchList(movie)}>
                 <i className="fa-fw fa fa-times">
                 </i>
             </button>

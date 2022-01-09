@@ -25,7 +25,7 @@ function App() {
       <Header/>
       <Switch>
         <Route exact path="/">
-          <Watchlist watchList={watchList}/>
+          <Watchlist watchList={watchList} removeFromWatchList={removeFromWatchList}/>
         </Route>
         <Route exact path="/watched">
           <Watched/>

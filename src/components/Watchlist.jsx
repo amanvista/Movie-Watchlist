@@ -1,6 +1,6 @@
 import React from 'react'
 import MovieCard from './MovieCard.jsx'
-export const Watchlist = ({watchList}) => {
+export const Watchlist = ({watchList, removeFromWatchList}) => {
     return (
         <>
         
@@ -10,11 +10,14 @@ export const Watchlist = ({watchList}) => {
                     <h1 className="heading">
                         My WatchList
                      </h1>
+                     <span className="count-pill">
+                         {watchList.length} {watchList.length == 1 ? "Movie" : "Movies"}
+                     </span>
                 </div>
                 <div className="movie-grid">
                     {watchList.map(
                         movie => (
-                            <MovieCard movie={movie} type="watchlist"/>
+                            <MovieCard removeFromWatchList={removeFromWatchList} movie={movie} type="watchlist"/>
                         )
                         
                     )}
