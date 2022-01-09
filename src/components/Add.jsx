@@ -39,7 +39,7 @@ export const Add = (props) => {
                         {
                             results.map((movie)=>{
                                 return (<li key={movie.id}>
-                                    <ResultCard watchList={props.watchList} movie={movie} addToWatchList={props.addToWatchList}       /></li>)
+                                    <ResultCard movie={movie}      /></li>)
                             })
                         }
                     </ul>

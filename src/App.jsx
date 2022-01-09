@@ -8,6 +8,8 @@ import {ResultCard} from './components/ResultCard.jsx'
 import "./App.css";
 import "./lib/font-awesome/css/all.min.css";
 import {useState, useEffect} from 'react'
+
+import GlobalState from './components/context/GlobalState.jsx';
 function App() {
   const [watchList, setWatchList] = useState([])
   const addToWatchList = (movie)=>{
@@ -21,20 +23,23 @@ function App() {
     localStorage.setItem('watchlist', JSON.stringify(watchList))
   },[watchList])
   return (
+
+    <GlobalState>
     <Router>
       <Header/>
       <Switch>
         <Route exact path="/">
-          <Watchlist watchList={watchList} removeFromWatchList={removeFromWatchList}/>
+          <Watchlist />
         </Route>
         <Route exact path="/watched">
           <Watched/>
         </Route>
         <Route exact path="/add">
-          <Add watchList={watchList} addToWatchList={addToWatchList}/>
+          <Add/>
         </Route>
       </Switch>
     </Router>
+    </GlobalState>
   );
 }
 

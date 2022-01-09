@@ -1,5 +1,5 @@
- import React from "react";
- import GlobalContext from "./GlolablContext";
+ import React,{useEffect} from "react";
+ import GlobalContext from "./GlobalContext";
   
 
  const GlobalState = (props) =>{
@@ -7,6 +7,9 @@
          watchlist:[],
          watched:[],
      }
+    //  useEffect(()=>{
+    //      console.log("Hi from use effect")
+    //  }, gState)
      return (<GlobalContext.Provider value={gState}>
          {props.children}
      </GlobalContext.Provider>

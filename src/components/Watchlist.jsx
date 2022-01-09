@@ -1,6 +1,10 @@
 import React from 'react'
 import MovieCard from './MovieCard.jsx'
-export const Watchlist = ({watchList, removeFromWatchList}) => {
+import { useContext } from 'react'
+import GlobalContext from './context/GlobalContext.jsx'
+
+export const Watchlist = () => {
+    const gState = useContext(GlobalContext)
     return (
         <>
         
@@ -11,16 +15,18 @@ export const Watchlist = ({watchList, removeFromWatchList}) => {
                         My WatchList
                      </h1>
                      <span className="count-pill">
-                         {watchList.length} {watchList.length == 1 ? "Movie" : "Movies"}
+
+                         {gState.watchlist.length} Movies
                      </span>
                 </div>
                 <div className="movie-grid">
-                    {watchList.map(
+                    {gState.watchlist.map(
                         movie => (
-                            <MovieCard removeFromWatchList={removeFromWatchList} movie={movie} type="watchlist"/>
+                            <MovieCard movie={movie} type="watchlist"/>
                         )
                         
                     )}
+                    
                 </div>
             </div>
         </div>

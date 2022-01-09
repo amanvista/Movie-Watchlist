@@ -1,10 +1,11 @@
-import React from 'react'
+import React, {useContext} from 'react'
+import GlobalContext from './context/GlobalContext.jsx'
 
-export const ResultCard =({watchList, movie,addToWatchList})=> {
-    
-    
-
-    
+export const ResultCard =({movie})=> {
+    const gState = useContext(GlobalContext)
+    const awatch = (movie)=>{
+        gState.watchlist = [movie,...gState.watchlist]
+    }
     return (
         <div className='result-card'>
             <div className="poster-wrapper">
@@ -24,7 +25,8 @@ export const ResultCard =({watchList, movie,addToWatchList})=> {
                     <h4 className="release-date">{movie.release_date ? movie.release_date.substring(0,4) : "-"}</h4>
                 </div>
                 <div className="control">
-                <button className="btn" onClick={ ()=>{addToWatchList(movie)}}>Add to Watchlist</button>
+                {/* addToWatchList(movie) */}
+                <button className="btn" onClick={ ()=>{awatch(movie)}}>Add to Watchlist</button>
             </div>
             </div>
             
