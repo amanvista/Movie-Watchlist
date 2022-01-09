@@ -7,20 +7,31 @@ import { Add } from "./components/Add.jsx";
 import {ResultCard} from './components/ResultCard.jsx'
 import "./App.css";
 import "./lib/font-awesome/css/all.min.css";
-
+import {useState, useEffect} from 'react'
 function App() {
+  const [watchList, setWatchList] = useState([])
+  const addToWatchList = (movie)=>{
+    setWatchList([movie,...watchList])
+  }
+  const removeFromWatchList = (watchedMovie)=>{
+    console.log(watchList.filter(movie => movie.id != watchedMovie))
+  }
+  useEffect( ()=>
+  {
+    localStorage.setItem('watchlist', JSON.stringify(watchList))
+  },[watchList])
   return (
     <Router>
       <Header/>
       <Switch>
         <Route exact path="/">
-          <Watchlist/>
+          <Watchlist watchList={watchList}/>
         </Route>
         <Route exact path="/watched">
           <Watched/>
         </Route>
         <Route exact path="/add">
-          <Add/>
+          <Add watchList={watchList} addToWatchList={addToWatchList}/>
         </Route>
       </Switch>
     </Router>

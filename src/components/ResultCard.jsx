@@ -1,6 +1,10 @@
 import React from 'react'
 
-export const ResultCard =({movie})=> {
+export const ResultCard =({watchList, movie,addToWatchList})=> {
+    
+    
+
+    
     return (
         <div className='result-card'>
             <div className="poster-wrapper">
@@ -20,7 +24,7 @@ export const ResultCard =({movie})=> {
                     <h4 className="release-date">{movie.release_date ? movie.release_date.substring(0,4) : "-"}</h4>
                 </div>
                 <div className="control">
-                <button className="btn">Add to Watchlist</button>
+                <button className="btn" onClick={ ()=>{addToWatchList(movie)}}>Add to Watchlist</button>
             </div>
             </div>
             

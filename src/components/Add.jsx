@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import {ResultCard} from './ResultCard.jsx'
 
-export const Add = () => {
+export const Add = (props) => {
     const [ query, setQuery ] = useState("")
     const [ results, setResults ] = useState([])
 
@@ -39,7 +39,7 @@ export const Add = () => {
                         {
                             results.map((movie)=>{
                                 return (<li key={movie.id}>
-                                    <ResultCard movie={movie}/></li>)
+                                    <ResultCard watchList={props.watchList} movie={movie} addToWatchList={props.addToWatchList}       /></li>)
                             })
                         }
                     </ul>
