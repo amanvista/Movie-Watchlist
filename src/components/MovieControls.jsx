@@ -15,7 +15,7 @@ const MovieControls = ({movie}) => {
                 </i>
             </button>
             <button className="ctrl-btn" >
-                <i className="fa-fw fa fa-times">
+                <i className="fa-fw fa fa-times ">
                 </i>
             </button>
         </div>

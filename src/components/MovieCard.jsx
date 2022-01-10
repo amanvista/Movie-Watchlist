@@ -1,6 +1,7 @@
 import React from 'react'
 import MovieControls from './MovieControls'
-const MovieCard = ({movie} ) => {
+const MovieCard = ({movie, removeFromWatchList} ) => {
+
     return (
         <div className="movie-card">
             <div className="overlay"></div>
@@ -12,7 +13,7 @@ const MovieCard = ({movie} ) => {
                     </div>
                 )
             }
-            <MovieControls movie={movie}/>
+            <MovieControls removeFromWatchList={removeFromWatchList} movie={movie}/>
         </div>
           
         

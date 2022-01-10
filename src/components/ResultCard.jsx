@@ -2,12 +2,13 @@ import React, {useContext, useState} from 'react'
 import GlobalContext from './context/GlobalContext.jsx'
 
 export const ResultCard =({movie})=> {
-
+    const [disable, setDisable] = React.useState(false);
     const gState = useContext(GlobalContext)
 
     const awatch = (movie)=>{
         gState.watchlist = [movie,...gState.watchlist]
     }
+    
     
     
 
@@ -31,7 +32,7 @@ export const ResultCard =({movie})=> {
                 </div>
                 <div className="control">
                 {/* addToWatchList(movie) */}
-                <button className="btn" onClick={ ()=>{awatch(movie)}}>Add to Watchlist</button>
+                <button className="btn" disabled={disable} onClick={ ()=>{awatch(movie); setDisable(true)}}>Add to Watchlist</button>
             </div>
             </div>
             
